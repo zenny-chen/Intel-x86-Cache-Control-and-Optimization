@@ -13,9 +13,23 @@ Intel x86处理器的Cache控制与优化
 
 Intel 64与IA-32架构支持Cache、翻译后备缓存（***translation look aside buffers***）（TLBs），还有一个存储缓存（***store buffer***）用于临时的对片上（和外部的）指令与数据的存储。（图11-1展示了用于奔腾4和Intel至强处理器的Cache、TLBs、以及存储缓存。）表11-1展示了用于奔腾4、Intel至强、P6家族以及奔腾处理器的Cache和缓存的特征。**这些单元的大小和特征是机器特定的，并且在处理器未来版本中可能会有所变化。** 当你使用CPUID指令时，该指令将会返回当前处理器的Cache和缓存的大小和特征。
 
+<br />
+
+![图11-1](https://github.com/zenny-chen/Intel-x86-Cache-Control-and-Optimization/blob/master/vol3_11-1.png)
 
 <br />
 
+![图11-2](https://github.com/zenny-chen/Intel-x86-Cache-Control-and-Optimization/blob/master/vol3_11-2.png)
+
+<br />
+
+图11-2展示了Intel Core i7处理器的Cache安排。
+
+<br />
+
+Intel 64和IA-32处理器可以实现四种类型的Cache：追踪Cache，L1 Cache，L2 Cache，还有L3 Cache。见图11-1。Cache可用性如下描述：
+
+• **基于Nehalem和Westmere Intel®微架构的Intel Core i7、i5、i3处理器家族以及Intel Xeon处理器家族** ——L1 Cache被划分为两个部分：一个部分专用于高速缓存指令（预解码的指令），另一部分专用于数据。L2 Cache是一个统一的数据和指令Cache。每个处理器核心有它自己的L1和L2 Cache。L3 Cache是一个内含的、统一的数据和指令Cache，由一个物理包内的所有处理器核心所共享。这些处理器架构没有实现追踪Cache。
 
 # 第一卷10.4.6——Cache能力控制、预取、以及存储器次序指令
 
