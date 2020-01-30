@@ -11,7 +11,7 @@ Intel x86处理器的Cache控制与优化
 
 ## 11.1 内部Cache、TLB、以及缓存
 
-
+Intel 64与IA-32架构支持Cache、翻译后备缓存（***translation look aside buffers***）（TLBs），还有一个存储缓存（***store buffer***）用于临时的对片上（和外部的）指令与数据的存储。（图11-1展示了用于奔腾4和Intel至强处理器的Cache、TLBs、以及存储缓存。）表11-1展示了用于奔腾4、Intel至强、P6家族以及奔腾处理器的Cache和缓存的特征。**这些单元的大小和特征是机器特定的，并且在处理器未来版本中可能会有所变化。**当你使用CPUID指令时，该指令将会返回当前处理器的Cache和缓存的大小和特征。
 
 
 <br />
