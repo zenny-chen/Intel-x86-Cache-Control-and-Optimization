@@ -27,15 +27,21 @@ Intel 64与IA-32架构支持Cache、翻译后备缓存（***translation look asi
 
 <br />
 
-Intel 64和IA-32处理器可以实现四种类型的Cache：追踪Cache，L1 Cache，L2 Cache，还有L3 Cache。见图11-1。Cache可用性如下描述：
+Intel 64和IA-32处理器可以实现四种类型的Cache：追踪Cache（***trace cache***），L1 Cache，L2 Cache，还有L3 Cache。见图11-1。Cache可用性如下描述：
 
 • **基于Nehalem和Westmere Intel®微架构的Intel Core i7、i5、i3处理器家族以及Intel Xeon处理器家族** ——L1 Cache被划分为两个部分：一个部分专用于高速缓存指令（预解码的指令），另一部分专用于数据。L2 Cache是一个统一的数据和指令Cache。每个处理器核心有它自己的L1和L2 Cache。L3 Cache是一个内含的、统一的数据和指令Cache，由一个物理包内的所有处理器核心所共享。这些处理器架构没有实现追踪Cache。
 
 • **基于Intel Core微架构的Intel Core 2处理器家族以及Intel Xeon处理器家族**——L1 Cache被划分为两部分：一部分是专用于高速缓存指令的（预解码的指令），另一部分用于高速缓存数据。L2 Cache是一个统一的数据和指令Cache，位于处理器片上；它在一个双核处理器实现中对两个处理器核心之间共享。四核处理器具有两个L2 Cache，每个L2 Cache被两个处理器核心共享。这些处理器架构没有实现追踪Cache。
 
-• **Intel Atom处理器**——L1 Cache被划分为两部分：一部分是专用于高速缓存指令的（预解码的指令），另一部分用于高速缓存数据。L2 Cache是一个统一的数据和指令Cache，位于处理器片上。该处理器架构没有实现追踪Cache。
+• **Intel Atom处理器**——L1 Cache被划分为两部分：一部分是专用于高速缓存指令的（预解码的指令），另一部分用于高速缓存数据。L2 Cache是位于处理器片上的统一数据和指令Cache。该处理器架构没有实现追踪Cache。
 
 • **Intel Solo以及Intel Core Duo处理器**——L1 Cache被划分为两部分：一部分是专用于高速缓存指令的（预解码的指令），另一部分用于高速缓存数据。L2 Cache是一个统一的数据和指令Cache，位于处理器片上。它在一个双核处理器实现中对两个处理器核心之间共享。这些处理器架构没有实现追踪Cache。
+
+• **基于NetBurst微架构的Pentium 4与Intel Xeon处理器**——追踪Cache高速缓存来自指令译码器的已被译码的指令（即微操作，μops），而L1 Cache只包含数据。L2和L3 Cache是位于处理器片上的统一数据和指令Cache。双核处理器具有两个L2，每个核心独用一个。注意，L3 Cache只在某些Intel Xeon处理器上实现。
+
+• **P6家族处理器**——L1 Cache被划分为两部分：一部分是专用于高速缓存指令的（预解码的指令），另一部分用于高速缓存数据。L2 Cache是位于处理器片上的统一数据和指令Cache。P6家族处理器没有实现追踪Cache。
+
+• **Pentium处理器**——L1 Cache具有与P6家族相同的结构。同时没有实现追踪Cache。在早期的奔腾处理器上，L2 Cache是在处理器片外的统一数据和指令Cache，而在后期的奔腾处理器上则是处理器片内的统一数据和指令Cache。对于L2 Cache在处理器片外的奔腾处理器，它对Cache的访问通过系统总线。
 
 <br />
 
