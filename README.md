@@ -27,23 +27,27 @@ Intel 64与IA-32架构支持Cache、翻译后备缓存（***translation look asi
 
 <br />
 
-Intel 64和IA-32处理器可以实现四种类型的Cache：追踪Cache（***trace cache***），L1 Cache，L2 Cache，还有L3 Cache。见图11-1。Cache可用性如下描述：
+Intel 64和IA-32处理器可以实现四种类型的Cache：踪迹Cache（***trace cache***），L1 Cache，L2 Cache，还有L3 Cache。见图11-1。Cache可用性如下描述：
 
-• **基于Nehalem和Westmere Intel®微架构的Intel Core i7、i5、i3处理器家族以及Intel Xeon处理器家族** ——L1 Cache被划分为两个部分：一个部分专用于高速缓存指令（预解码的指令），另一部分专用于数据。L2 Cache是一个统一的数据和指令Cache。每个处理器核心有它自己的L1和L2 Cache。L3 Cache是一个内含的、统一的数据和指令Cache，由一个物理包内的所有处理器核心所共享。这些处理器架构没有实现追踪Cache。
+• **基于Nehalem和Westmere Intel®微架构的Intel Core i7、i5、i3处理器家族以及Intel Xeon处理器家族** ——L1 Cache被划分为两个部分：一个部分专用于高速缓存指令（预解码的指令），另一部分专用于数据。L2 Cache是一个统一的数据和指令Cache。每个处理器核心有它自己的L1和L2 Cache。L3 Cache是一个内含的、统一的数据和指令Cache，由一个物理包内的所有处理器核心所共享。这些处理器架构没有实现踪迹Cache。
 
-• **基于Intel Core微架构的Intel Core 2处理器家族以及Intel Xeon处理器家族**——L1 Cache被划分为两部分：一部分是专用于高速缓存指令的（预解码的指令），另一部分用于高速缓存数据。L2 Cache是一个统一的数据和指令Cache，位于处理器片上；它在一个双核处理器实现中对两个处理器核心之间共享。四核处理器具有两个L2 Cache，每个L2 Cache被两个处理器核心共享。这些处理器架构没有实现追踪Cache。
+• **基于Intel Core微架构的Intel Core 2处理器家族以及Intel Xeon处理器家族**——L1 Cache被划分为两部分：一部分是专用于高速缓存指令的（预解码的指令），另一部分用于高速缓存数据。L2 Cache是一个统一的数据和指令Cache，位于处理器片上；它在一个双核处理器实现中对两个处理器核心之间共享。四核处理器具有两个L2 Cache，每个L2 Cache被两个处理器核心共享。这些处理器架构没有实现踪迹Cache。
 
-• **Intel Atom处理器**——L1 Cache被划分为两部分：一部分是专用于高速缓存指令的（预解码的指令），另一部分用于高速缓存数据。L2 Cache是位于处理器片上的统一数据和指令Cache。该处理器架构没有实现追踪Cache。
+• **Intel Atom处理器**——L1 Cache被划分为两部分：一部分是专用于高速缓存指令的（预解码的指令），另一部分用于高速缓存数据。L2 Cache是位于处理器片上的统一数据和指令Cache。该处理器架构没有实现踪迹Cache。
 
-• **Intel Solo以及Intel Core Duo处理器**——L1 Cache被划分为两部分：一部分是专用于高速缓存指令的（预解码的指令），另一部分用于高速缓存数据。L2 Cache是一个统一的数据和指令Cache，位于处理器片上。它在一个双核处理器实现中对两个处理器核心之间共享。这些处理器架构没有实现追踪Cache。
+• **Intel Solo以及Intel Core Duo处理器**——L1 Cache被划分为两部分：一部分是专用于高速缓存指令的（预解码的指令），另一部分用于高速缓存数据。L2 Cache是一个统一的数据和指令Cache，位于处理器片上。它在一个双核处理器实现中对两个处理器核心之间共享。这些处理器架构没有实现踪迹Cache。
 
-• **基于NetBurst微架构的Pentium 4与Intel Xeon处理器**——追踪Cache高速缓存来自指令译码器的已被译码的指令（即微操作，μops），而L1 Cache只包含数据。L2和L3 Cache是位于处理器片上的统一数据和指令Cache。双核处理器具有两个L2，每个核心独用一个。注意，L3 Cache只在某些Intel Xeon处理器上实现。
+• **基于NetBurst微架构的Pentium 4与Intel Xeon处理器**——踪迹Cache高速缓存来自指令译码器的已被译码的指令（即微操作，μops），而L1 Cache只包含数据。L2和L3 Cache是位于处理器片上的统一数据和指令Cache。双核处理器具有两个L2，每个核心独用一个。注意，L3 Cache只在某些Intel Xeon处理器上实现。
 
-• **P6家族处理器**——L1 Cache被划分为两部分：一部分是专用于高速缓存指令的（预解码的指令），另一部分用于高速缓存数据。L2 Cache是位于处理器片上的统一数据和指令Cache。P6家族处理器没有实现追踪Cache。
+• **P6家族处理器**——L1 Cache被划分为两部分：一部分是专用于高速缓存指令的（预解码的指令），另一部分用于高速缓存数据。L2 Cache是位于处理器片上的统一数据和指令Cache。P6家族处理器没有实现踪迹Cache。
 
-• **Pentium处理器**——L1 Cache具有与P6家族相同的结构。同时没有实现追踪Cache。在早期的奔腾处理器上，L2 Cache是在处理器片外的统一数据和指令Cache，而在后期的奔腾处理器上则是处理器片内的统一数据和指令Cache。对于L2 Cache在处理器片外的奔腾处理器，它对Cache的访问通过系统总线。
+• **Pentium处理器**——L1 Cache具有与P6家族相同的结构。同时没有实现踪迹Cache。在早期的奔腾处理器上，L2 Cache是在处理器片外的统一数据和指令Cache，而在后期的奔腾处理器上则是处理器片内的统一数据和指令Cache。对于L2 Cache在处理器片外的奔腾处理器，它对Cache的访问通过系统总线。
 
 对于基于Intel Core、Intel Atom、以及Intel NetBurst微架构的处理器以及Intel Core i7处理器，Intel Core Duo、Intel Core Solo以及Intel Pentium M处理器，L1和L2 Cache（还有L3 Cache，如果支持的话）的Cache行是64字节宽。处理器总是从起始于一个64字节边界的系统存储器读取一条Cache行。（一条64字节对齐的Cache行起始于一个地址，该地址的最低6位有效位被清零。）一条Cache行可以从存储器用一个8次传输的burst事务（即每次传输8个字节）进行填充。Cache并不支持部分填充的Cache行，因此即便要高速缓存一个双字（4字节）也需要高速缓存一整条Cache行。
+
+在P6家族和奔腾处理器中的L1和L2 Cache是32字节宽，其Cache行从起始于32字节边界的系统存储器读取（一个存储器地址的最低5位有效位被清零）。一条Cache行可以用一个4次传输的burst事务（每次传输还是8个字节）从存储器进行填充。不支持部分填充的Cache行。
+
+基于NetBurst微架构的处理器中的踪迹Cache在所有执行模式下都可用：保护模式、系统管理模式（**SMM**）、以及实地址模式。L1、L2和L3 Cache也可以在所有执行模式下使用；然而要注意的是，在SMM模式下必须得小心使用Cache。
 
 <br />
 
