@@ -43,6 +43,8 @@ Intel 64和IA-32处理器可以实现四种类型的Cache：追踪Cache（***tra
 
 • **Pentium处理器**——L1 Cache具有与P6家族相同的结构。同时没有实现追踪Cache。在早期的奔腾处理器上，L2 Cache是在处理器片外的统一数据和指令Cache，而在后期的奔腾处理器上则是处理器片内的统一数据和指令Cache。对于L2 Cache在处理器片外的奔腾处理器，它对Cache的访问通过系统总线。
 
+对于基于Intel Core、Intel Atom、以及Intel NetBurst微架构的处理器以及Intel Core i7处理器，Intel Core Duo、Intel Core Solo以及Intel Pentium M处理器，L1和L2 Cache（还有L3 Cache，如果支持的话）的Cache行是64字节宽。处理器总是从起始于一个64字节边界的系统存储器读取一条Cache行。（一条64字节对齐的Cache行起始于一个地址，该地址的最低6位有效位被清零。）一条Cache行可以从存储器用一个8次传输的burst事务（即每次传输8个字节）进行填充。Cache并不支持部分填充的Cache行，因此即便要高速缓存一个双字（4字节）也需要高速缓存一整条Cache行。
+
 <br />
 
 # 第一卷10.4.6——Cache能力控制、预取、以及存储器次序指令
